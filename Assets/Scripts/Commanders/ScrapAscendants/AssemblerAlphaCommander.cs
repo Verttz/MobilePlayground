@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class AssemblerAlphaCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "Assembler Alpha";
+        faction = "Scrap Ascendants";
+        traitDescription = "Modular Synergy: Each unique module type equipped grants small cross-bonuses; diversity increases efficiency.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class AssemblerAlphaCommander : Commander
             if (gm.GetComponent<AssemblerAlphaRuntime>() == null)
                 gm.gameObject.AddComponent<AssemblerAlphaRuntime>();
         }
-        traitDescription = "Modular Synergy: Each unique module type equipped grants small cross-bonuses; diversity increases efficiency.";
     }
 
     public override void ActivateAbility(GameManager gm)

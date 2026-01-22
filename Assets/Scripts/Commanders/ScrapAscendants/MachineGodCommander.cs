@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class MachineGodCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "The Machine God";
+        faction = "Scrap Ascendants";
+        traitDescription = "Self-Design: The entity gains small random improvements each wave; choices biased by installed modules.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class MachineGodCommander : Commander
             if (gm.GetComponent<MachineGodRuntime>() == null)
                 gm.gameObject.AddComponent<MachineGodRuntime>();
         }
-        traitDescription = "Self-Design: The entity gains small random improvements each wave; choices biased by installed modules.";
     }
 
     public override void ActivateAbility(GameManager gm)

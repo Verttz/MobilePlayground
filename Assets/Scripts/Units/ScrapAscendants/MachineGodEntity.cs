@@ -8,6 +8,7 @@ public class MachineGodEntity : Unit
         health = 100;
         attack = 10;
         speed = 1.5f;
+        isEnemy = false;
         isRanged = true;
         attackRange = 4f;
         scanRange = 5f;

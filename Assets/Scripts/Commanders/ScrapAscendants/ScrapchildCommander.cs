@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class ScrapchildCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "Scrapchild";
+        faction = "Scrap Ascendants";
+        traitDescription = "Density Instinct: Units near each other gain small synergy buffs; mergers gain extra traits from larger crowds.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class ScrapchildCommander : Commander
             if (gm.GetComponent<ScrapchildRuntime>() == null)
                 gm.gameObject.AddComponent<ScrapchildRuntime>();
         }
-        traitDescription = "Density Instinct: Units near each other gain small synergy buffs; mergers gain extra traits from larger crowds.";
     }
 
     public override void ActivateAbility(GameManager gm)

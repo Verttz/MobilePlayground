@@ -8,6 +8,7 @@ public class FodderUnit : Unit
         health = 5;
         attack = 1;
         speed = 2f;
+        isEnemy = false;
         isRanged = false;
         attackRange = 1f;
         scanRange = 3f;

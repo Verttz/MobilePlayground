@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class RustProphetCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "Rust Prophet";
+        faction = "Scrap Ascendants";
+        traitDescription = "Creep of Rust: Corrosion applied by allies slowly intensifies and spreads to nearby enemies.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class RustProphetCommander : Commander
             if (gm.GetComponent<RustProphetRuntime>() == null)
                 gm.gameObject.AddComponent<RustProphetRuntime>();
         }
-        traitDescription = "Creep of Rust: Corrosion applied by allies slowly intensifies and spreads to nearby enemies.";
     }
 
     public override void ActivateAbility(GameManager gm)

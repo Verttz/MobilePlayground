@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class PatchworkKingCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "Patchwork King";
+        faction = "Scrap Ascendants";
+        traitDescription = "Quilted Might: Hybrids gain extra stats when made from diverse building types.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class PatchworkKingCommander : Commander
             if (gm.GetComponent<PatchworkKingRuntime>() == null)
                 gm.gameObject.AddComponent<PatchworkKingRuntime>();
         }
-        traitDescription = "Quilted Might: Hybrids gain extra stats when made from diverse building types.";
     }
 
     public override void ActivateAbility(GameManager gm)

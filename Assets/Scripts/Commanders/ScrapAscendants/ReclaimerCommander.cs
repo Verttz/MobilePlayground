@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class ReclaimerCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "The Reclaimer";
+        faction = "Scrap Ascendants";
+        traitDescription = "Early Return: Higher refund rates in the early waves; decays as the run progresses.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class ReclaimerCommander : Commander
             if (gm.GetComponent<ReclaimerRuntime>() == null)
                 gm.gameObject.AddComponent<ReclaimerRuntime>();
         }
-        traitDescription = "Early Return: Higher refund rates in the early waves; decays as the run progresses.";
     }
 
     public override void ActivateAbility(GameManager gm)

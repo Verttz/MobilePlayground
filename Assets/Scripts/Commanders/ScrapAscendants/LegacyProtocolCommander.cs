@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class LegacyProtocolCommander : Commander
 {
+    void Awake()
+    {
+        commanderName = "Legacy Protocol";
+        faction = "Scrap Ascendants";
+        traitDescription = "Heirloom Buffer: Permanently locked upgrades grant small extra bonuses in subsequent locks.";
+    }
+
     public override void ApplyTrait(GameManager gm)
     {
         if (gm != null)
@@ -9,7 +16,6 @@ public class LegacyProtocolCommander : Commander
             if (gm.GetComponent<LegacyProtocolRuntime>() == null)
                 gm.gameObject.AddComponent<LegacyProtocolRuntime>();
         }
-        traitDescription = "Heirloom Buffer: Permanently locked upgrades grant small extra bonuses in subsequent locks.";
     }
 
     public override void ActivateAbility(GameManager gm)

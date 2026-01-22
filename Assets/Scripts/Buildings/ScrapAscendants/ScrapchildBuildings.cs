@@ -35,7 +35,12 @@ public class SwarmPen : Building
         // Generates fodder units to fuel merges
         if (productPrefab != null)
         {
-            Instantiate(productPrefab, transform.position, Quaternion.identity);
+            GameObject unitObj = Instantiate(productPrefab, transform.position, Quaternion.identity);
+            Unit unit = unitObj.GetComponent<Unit>();
+            if (unit != null && GameManager.Instance != null)
+            {
+                GameManager.Instance.playerUnits.Add(unit);
+            }
         }
     }
 }
