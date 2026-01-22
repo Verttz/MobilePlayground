@@ -26,7 +26,7 @@ public class DirgeCommander : Commander
 
 public class DirgeRuntime : MonoBehaviour
 {
-    private int recentDeaths = 0;
+    private float recentDeaths = 0f;
     private float decayRate = 0.5f;
     private float sorrowPower = 0f;
 
@@ -35,13 +35,13 @@ public class DirgeRuntime : MonoBehaviour
         // Decay sorrow over time
         if (recentDeaths > 0)
         {
-            recentDeaths = Mathf.Max(0, recentDeaths - Mathf.RoundToInt(decayRate * Time.deltaTime));
+            recentDeaths = Mathf.Max(0f, recentDeaths - (decayRate * Time.deltaTime));
         }
     }
 
     public void OnAllyDeath()
     {
-        recentDeaths++;
+        recentDeaths += 1f;
         sorrowPower += 10f;
     }
 
@@ -50,6 +50,6 @@ public class DirgeRuntime : MonoBehaviour
         float burstPower = sorrowPower + (recentDeaths * 20f);
         Debug.Log("Released sorrow burst! Power: " + burstPower);
         sorrowPower = 0f;
-        recentDeaths = 0;
+        recentDeaths = 0f;
     }
 }

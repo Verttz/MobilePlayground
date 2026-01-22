@@ -29,6 +29,7 @@ public class TheConductorRuntime : MonoBehaviour
     private float beatInterval = 2f;
     private float beatTimer = 0f;
     private int perfectBeatsInRow = 0;
+    private int maxPerfectBeats = 10;
 
     void Update()
     {
@@ -48,7 +49,7 @@ public class TheConductorRuntime : MonoBehaviour
 
     public void TriggerPerfectBeat()
     {
-        perfectBeatsInRow++;
+        perfectBeatsInRow = Mathf.Min(perfectBeatsInRow + 1, maxPerfectBeats);
         float multiplier = Mathf.Pow(1.2f, perfectBeatsInRow);
         // Apply exponential buff
         Debug.Log("Perfect beat! Multiplier: " + multiplier);

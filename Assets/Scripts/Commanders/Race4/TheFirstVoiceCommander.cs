@@ -16,16 +16,28 @@ public class TheFirstVoiceCommander : Commander
     public override void ActivateAbility(GameManager gm)
     {
         // Empower all newly spawned units for a short time
-        if (gm != null)
+        if (gm != null && gm.playerUnits != null)
         {
-            foreach (Unit unit in GameObject.FindObjectsOfType<Unit>())
+            foreach (Unit unit in gm.playerUnits)
             {
-                if (!unit.isEnemy)
+                if (unit != null && !unit.isEnemy)
                 {
-                    unit.attackMultiplier += 0.5f;
-                    unit.speed += 1f;
+                    StartCoroutine(ApplyTemporaryBuff(unit));
                 }
             }
+        }
+    }
+
+    private System.Collections.IEnumerator ApplyTemporaryBuff(Unit unit)
+    {
+        float buffDuration = 10f;
+        unit.attackMultiplier += 0.5f;
+        unit.speed += 1f;
+        yield return new UnityEngine.WaitForSeconds(buffDuration);
+        if (unit != null)
+        {
+            unit.attackMultiplier -= 0.5f;
+            unit.speed -= 1f;
         }
     }
 }

@@ -12,10 +12,4 @@ public class SpectralReinforcementUnit : Unit
         scanRange = 4f;
         attackCooldown = 1.2f;
     }
-
-    protected override void AttackTarget(Unit target)
-    {
-        // Spectral units deal standard damage
-        base.AttackTarget(target);
-    }
 }

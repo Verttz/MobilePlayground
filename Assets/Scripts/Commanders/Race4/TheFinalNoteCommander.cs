@@ -43,13 +43,18 @@ public class TheFinalNoteRuntime : MonoBehaviour
         if (!crescendoUsed)
         {
             crescendoUsed = true;
-            // Destroy all enemy units
-            Unit[] allUnits = GameObject.FindObjectsOfType<Unit>();
-            foreach (Unit unit in allUnits)
+            // Destroy all enemy units using GameManager if available
+            GameManager gm = GameManager.Instance;
+            if (gm != null)
             {
-                if (unit.isEnemy)
+                // Find all enemy units
+                Unit[] allUnits = GameObject.FindObjectsOfType<Unit>();
+                foreach (Unit unit in allUnits)
                 {
-                    Destroy(unit.gameObject);
+                    if (unit != null && unit.isEnemy)
+                    {
+                        unit.health = 0; // Set health to 0 to trigger normal death logic
+                    }
                 }
             }
             Debug.Log("CRESCENDO! All enemies destroyed!");
