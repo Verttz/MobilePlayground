@@ -25,7 +25,18 @@ public class Building : MonoBehaviour
         }
         if (health <= 0)
         {
+            OnDestroyed();
             Destroy(gameObject);
+        }
+    }
+
+    protected virtual void OnDestroyed()
+    {
+        // Notify GameManager if this is a player building
+        if (GameManager.Instance != null && GameManager.Instance.playerBuildings.Contains(this))
+        {
+            GameManager.Instance.playerBuildings.Remove(this);
+            GameManager.Instance.CheckPlayerBaseDestroyed();
         }
     }
 

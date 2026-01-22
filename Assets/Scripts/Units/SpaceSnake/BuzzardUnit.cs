@@ -10,7 +10,8 @@ public class BuzzardUnit : Unit
         isRanged = false;
         attackRange = 1f;
         scanRange = 3.5f;
-        // Optionally add flying logic/flag
+        isFlying = true; // This line is now redundant
     }
-    // Add unique flying behavior if needed
+    public bool isFlying = true; // Add isFlying flag for flight logic
+    // Add Flying behavior here.
 }

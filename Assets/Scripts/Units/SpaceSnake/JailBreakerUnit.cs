@@ -11,5 +11,11 @@ public class JailBreakerUnit : Unit
         attackRange = 1.2f;
         scanRange = 2.5f;
     }
-    // Optionally add bonus damage to buildings here
+    public float buildingDamageMultiplier = 2f;
+
+    protected override void AttackBuilding(Building building)
+    {
+        // Deal extra damage to buildings
+        building.TakeDamage(Mathf.RoundToInt(attack * attackMultiplier * buildingDamageMultiplier));
+    }
 }

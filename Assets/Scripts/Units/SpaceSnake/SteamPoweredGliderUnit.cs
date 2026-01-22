@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SteamPoweredGliderUnit : Unit
 {
+    public bool isFlying = true;
+
     void Awake()
     {
         health = 6;
@@ -10,7 +12,9 @@ public class SteamPoweredGliderUnit : Unit
         isRanged = true;
         attackRange = 4.5f;
         scanRange = 5f;
-        // Optionally add flying logic/flag
+        isFlying = true;
     }
-    // Add unique flying behavior if needed
+
+    // Example flight logic: ignore ground obstacles (requires obstacle system)
+    // You can check isFlying in targeting and collision logic elsewhere
 }

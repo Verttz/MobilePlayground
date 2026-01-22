@@ -129,6 +129,17 @@ public class Unit : MonoBehaviour
             Unit unit = hit.GetComponent<Unit>();
             if (unit != null && unit.isEnemy != this.isEnemy && unit.health > 0)
             {
+                // Melee units cannot target flying units
+                bool targetIsFlying = false;
+                var flyingField = unit.GetType().GetField("isFlying");
+                if (flyingField != null)
+                {
+                    targetIsFlying = (bool)flyingField.GetValue(unit);
+                }
+                if (!isRanged && targetIsFlying)
+                {
+                    continue; // skip flying units if melee
+                }
                 float dist = Vector2.Distance(transform.position, unit.transform.position);
                 if (dist < minDist)
                 {

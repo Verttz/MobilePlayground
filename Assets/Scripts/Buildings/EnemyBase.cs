@@ -9,4 +9,13 @@ public class EnemyBase : Building
         // Optionally override to spawn enemy units or trigger effects
         base.Produce();
     }
+
+    protected override void OnDestroyed()
+    {
+        // Notify GameManager of win
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnEnemyBaseDestroyed();
+        }
+    }
 }

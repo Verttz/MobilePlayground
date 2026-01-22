@@ -7,7 +7,7 @@ public class EnemyBase : MonoBehaviour
     // Which wave unlocks each tier (set in Inspector, e.g. [1, 5, 10, 15, 20])
     public int[] tierUnlockWaves;
     public Transform[] spawnPoints;
-    public int maxArmySize = 50; // Hard cap for performance
+    public int maxArmySize = 250; // Hard cap for performance
 
     // Called to spawn a wave
     public void SpawnWave(int waveNumber)

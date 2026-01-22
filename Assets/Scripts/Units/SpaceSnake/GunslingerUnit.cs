@@ -11,5 +11,5 @@ public class GunslingerUnit : Unit
         attackRange = 3f;
         scanRange = 4f;
     }
-    // Add unique behavior if needed
+    // Already implemented via stats: standard ranged
 }
