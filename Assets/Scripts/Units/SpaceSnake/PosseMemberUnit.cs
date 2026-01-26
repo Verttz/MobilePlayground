@@ -11,5 +11,5 @@ public class PosseMemberUnit : Unit
         attackRange = 1f;
         scanRange = 3f;
     }
-    // Add unique swarm logic if needed
+    // Already implemented via stats: fast, swarm
 }

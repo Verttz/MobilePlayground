@@ -39,6 +39,9 @@ public class FurTrapperUnit : Unit
             {
                 // Stun logic: you may want to implement a Stun() method on Unit
                 // Example: enemy.Stun(trapStunDuration);
+                // For now, just reduce speed as a placeholder
+                enemy.speed *= 0.1f;
+                // Optionally, start a coroutine to restore speed after trapStunDuration
                 break;
             }
         }

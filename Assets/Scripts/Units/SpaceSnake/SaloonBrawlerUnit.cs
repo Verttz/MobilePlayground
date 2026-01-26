@@ -11,5 +11,16 @@ public class SaloonBrawlerUnit : Unit
         attackRange = 1.2f;
         scanRange = 3f;
     }
-    // Optionally add knockback logic here
+    protected override void AttackTarget(Unit target)
+    {
+        base.AttackTarget(target);
+        // Apply knockback effect
+        Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            Vector2 knockbackDir = (target.transform.position - transform.position).normalized;
+            float knockbackForce = 5f;
+            rb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+        }
+    }
 }

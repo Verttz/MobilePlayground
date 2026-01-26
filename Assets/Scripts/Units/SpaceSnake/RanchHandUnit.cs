@@ -11,5 +11,22 @@ public class RanchHandUnit : Unit
         attackRange = 1f;
         scanRange = 2.5f;
     }
-    // Optionally add attack speed buff logic here
+    public float buffRange = 2f;
+    public float attackSpeedBuff = 0.8f; // 20% faster
+
+    void Update()
+    {
+        base.Update();
+        // Buff nearby allies
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, buffRange);
+        foreach (var hit in hits)
+        {
+            Unit ally = hit.GetComponent<Unit>();
+            if (ally != null && ally.isEnemy == isEnemy && ally != this)
+            {
+                // Example: apply attack speed buff (implement in Unit if needed)
+                // ally.ApplyAttackSpeedBuff(attackSpeedBuff);
+            }
+        }
+    }
 }

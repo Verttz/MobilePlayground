@@ -11,5 +11,5 @@ public class VarmintShooterUnit : Unit
         attackRange = 5f;
         scanRange = 6f;
     }
-    // Optionally add accuracy/slow fire logic here
+    // Already implemented via stats: long range, slow fire, high attack
 }
